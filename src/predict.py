@@ -55,6 +55,13 @@ class GridRiskPredictor:
         labels        : np.ndarray  – binary prediction at 0.5 threshold
         """
         df = engineer_features(df)
+        
+        # Ensure that all feature names exist in df
+        expected_cols = getattr(self.preprocessor, "feature_names_in_", [])
+        for col in expected_cols:
+            if col not in df.columns:
+                df[col] = np.nan
+                
         X = self.preprocessor.transform(df)
         probs = self.model.predict_proba(X)[:, 1]
         labels = (probs >= 0.5).astype(int)

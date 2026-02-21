@@ -139,6 +139,13 @@ def predict_risk(
     df = pd.DataFrame([record])
     from src.features import engineer_features
     df = engineer_features(df)
+    
+    # Ensure all columns expected by the preprocessor are present (fill with NaN if missing)
+    expected_cols = getattr(predictor.preprocessor, "feature_names_in_", [])
+    for col in expected_cols:
+        if col not in df.columns:
+            df[col] = np.nan
+            
     X = predictor.preprocessor.transform(df)
     shap_factors = explain_prediction(
         X, model=predictor.model, feature_names=predictor.feature_names, top_k=8
