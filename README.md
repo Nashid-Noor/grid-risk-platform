@@ -3,6 +3,9 @@
 Production-structured outage risk prediction system for electricity distribution operations. Predicts the probability of high-impact power outage events with explainability, monitoring, and governance built in.
 
 ---
+**Live Demo:** ([https://huggingface.co/spaces/nashid16/grid-risk-platform?logs=container](https://huggingface.co/spaces/nashid16/grid-risk-platform))
+
+---
 
 ## Architecture Overview
 
