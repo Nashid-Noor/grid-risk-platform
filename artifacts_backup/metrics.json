@@ -1,0 +1,14 @@
+{
+  "baseline": {
+    "roc_auc": 0.7756,
+    "pr_auc": 0.3129,
+    "brier": 0.1702,
+    "cv_roc_auc": 0.776
+  },
+  "xgboost": {
+    "roc_auc": 0.8073,
+    "pr_auc": 0.3902,
+    "brier": 0.1164,
+    "cv_roc_auc": 0.7948
+  }
+}
